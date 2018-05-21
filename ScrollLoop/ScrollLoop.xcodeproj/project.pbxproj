@@ -22,6 +22,7 @@
 		CD6FAF2E20A04956003709D9 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6FAF2D20A04956003709D9 /* Const.swift */; };
 		CD6FAF3020A050F7003709D9 /* UILabel+VerticalText.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6FAF2F20A050F7003709D9 /* UILabel+VerticalText.swift */; };
 		CD6FAF3220A0535B003709D9 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6FAF3120A0535B003709D9 /* ScrollViewController.swift */; };
+		CDE211A320B273920094BC38 /* SnowView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDE211A220B273920094BC38 /* SnowView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,9 @@
 		CD6FAF2D20A04956003709D9 /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		CD6FAF2F20A050F7003709D9 /* UILabel+VerticalText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+VerticalText.swift"; sourceTree = "<group>"; };
 		CD6FAF3120A0535B003709D9 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
+		CDE211A020B273910094BC38 /* ScrollLoop-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScrollLoop-Bridging-Header.h"; sourceTree = "<group>"; };
+		CDE211A120B273920094BC38 /* SnowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnowView.h; sourceTree = "<group>"; };
+		CDE211A220B273920094BC38 /* SnowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnowView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +165,9 @@
 				CD6FAF2F20A050F7003709D9 /* UILabel+VerticalText.swift */,
 				CD0435E320A17CE80039CED6 /* SetupFontView.swift */,
 				CD0435E520A191390039CED6 /* SetUpScrollView.swift */,
+				CDE211A120B273920094BC38 /* SnowView.h */,
+				CDE211A220B273920094BC38 /* SnowView.m */,
+				CDE211A020B273910094BC38 /* ScrollLoop-Bridging-Header.h */,
 			);
 			path = SHScrollView;
 			sourceTree = "<group>";
@@ -233,6 +240,7 @@
 				TargetAttributes = {
 					CD6FAEF420A04248003709D9 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					CD6FAF0B20A04249003709D9 = {
@@ -301,6 +309,7 @@
 			files = (
 				CD6FAF0120A04248003709D9 /* ScrollLoop.xcdatamodeld in Sources */,
 				CD6FAEFB20A04248003709D9 /* ViewController.swift in Sources */,
+				CDE211A320B273920094BC38 /* SnowView.m in Sources */,
 				CD0435E220A157CB0039CED6 /* UIView+Extension.swift in Sources */,
 				CD0435E620A191390039CED6 /* SetUpScrollView.swift in Sources */,
 				CD6FAEF920A04248003709D9 /* AppDelegate.swift in Sources */,
@@ -474,6 +483,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2LYHXGC7E;
 				INFOPLIST_FILE = ScrollLoop/Info.plist;
@@ -481,6 +491,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lsh.ScrollLoop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ScrollLoop/SHScrollView/ScrollLoop-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -490,6 +502,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L2LYHXGC7E;
 				INFOPLIST_FILE = ScrollLoop/Info.plist;
@@ -497,6 +510,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lsh.ScrollLoop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ScrollLoop/SHScrollView/ScrollLoop-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

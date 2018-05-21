@@ -30,6 +30,7 @@ class ViewController: UIViewController,UITextFieldDelegate,ClickbuttonDelegate,C
     }
     
     private func setUpSubViews() {
+        
         inputTextField = UITextField.init(frame: CGRect.init(x: 15, y: topSpace, width: Int(SCREEN_WIDTH - kMargin * 2), height: Int(50)))
         inputTextField?.borderStyle = .roundedRect
         inputTextField?.textColor = UIColor.black

@@ -10,6 +10,7 @@ import UIKit
 
 class ScrollViewController: UIViewController {
     var scrollType: SHScrollDirction?
+    var snowView: SnowView?
     var theTextString : NSString?
     var fontColor: UIColor = UIColor.red //字体的颜色
     var scorllSpeed: CGFloat = 3 //每次回调移动多少点
@@ -46,6 +47,9 @@ class ScrollViewController: UIViewController {
         scrollView.pointsPerFrame = scorllSpeed
         scrollView.scrollType = scrollType!
         self.view.addSubview(scrollView)
+        
+        snowView = SnowView.init(frame: self.view.bounds)
+        snowView?.show(UIImage.init(named: "1"), in: self.view)
     }
 
     override func viewDidLayoutSubviews() {
