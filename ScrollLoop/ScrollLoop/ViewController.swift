@@ -19,6 +19,7 @@ class ViewController: UIViewController,UITextFieldDelegate,ClickbuttonDelegate,C
     var setupScrollView : SetUpScrollView?
     var scorllSpeed: CGFloat = 3 //滚动的速度
     var fontSize: CGFloat = 300 //滚动的速度
+    var snowShowButton: UIButton?
     var scrollType: SHScrollDirction = .fromLeft
     var fontColor: UIColor = UIColor.red
     
@@ -67,8 +68,20 @@ class ViewController: UIViewController,UITextFieldDelegate,ClickbuttonDelegate,C
         setupScrollView?.delegate = self
         self.view.addSubview(setupScrollView!)
         
+        snowShowButton = UIButton.init()
+        snowShowButton?.frame = CGRect.init(x: kMargin, y: setupScrollView!.y + 100, width: SCREEN_WIDTH - kMargin * 2, height: 30)
+        snowShowButton?.addTarget(self, action: #selector(clickShowSnowOrNot(button:)), for: .touchUpInside)
+        snowShowButton?.titleLabel?.textAlignment = .center
+        snowShowButton?.setTitle("ShowTheSnowOrNot", for: .normal)
+        snowShowButton?.setTitleColor(UIColor.white, for: .normal)
+        snowShowButton?.layer.masksToBounds = true
+        snowShowButton?.layer.borderColor = UIColor.clear.cgColor
+        snowShowButton?.layer.borderWidth = 3
+        snowShowButton?.layer.cornerRadius = 5
+        self.view.addSubview(snowShowButton!)
+        
         doneButton = UIButton.init()
-        doneButton?.frame = CGRect.init(x: kMargin, y: setupScrollView!.y + 100, width: SCREEN_WIDTH - kMargin * 2, height: 50)
+        doneButton?.frame = CGRect.init(x: kMargin, y: snowShowButton!.y + 100, width: SCREEN_WIDTH - kMargin * 2, height: 50)
         doneButton?.addTarget(self, action: #selector(clickDoneButton), for: .touchUpInside)
         doneButton?.backgroundColor = .green
         doneButton?.titleLabel?.textAlignment = .center
@@ -78,6 +91,17 @@ class ViewController: UIViewController,UITextFieldDelegate,ClickbuttonDelegate,C
         doneButton?.layer.cornerRadius = 5
         self.view.addSubview(doneButton!)
         
+        
+        
+    }
+    
+    @objc func clickShowSnowOrNot(button : UIButton) {
+        snowShowButton?.isSelected = !button.isSelected
+        if (snowShowButton?.isSelected)! {
+            snowShowButton?.layer.borderColor = UIColor.green.cgColor
+        } else {
+            snowShowButton?.layer.borderColor = UIColor.clear.cgColor
+        }
     }
     @objc func clickDoneButton() {
         self.view.endEditing(true)
@@ -91,6 +115,7 @@ class ViewController: UIViewController,UITextFieldDelegate,ClickbuttonDelegate,C
             scrollView.scorllSpeed = scorllSpeed
             scrollView.fontSize = fontSize
             scrollView.scrollType = scrollType
+            scrollView.showTheSnow = (snowShowButton?.isSelected)!
             scrollView.title = "往左"
             
             let rotation : UIInterfaceOrientationMask = .landscapeLeft

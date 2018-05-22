@@ -15,6 +15,7 @@ class ScrollViewController: UIViewController {
     var fontColor: UIColor = UIColor.red //字体的颜色
     var scorllSpeed: CGFloat = 3 //每次回调移动多少点
     var fontSize: CGFloat = 300 //滚动的速度
+    var showTheSnow: Bool = true
     let kAppdelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
     private let scrollView = SHScrolIView()
     
@@ -48,8 +49,10 @@ class ScrollViewController: UIViewController {
         scrollView.scrollType = scrollType!
         self.view.addSubview(scrollView)
         
-        snowView = SnowView.init(frame: self.view.bounds)
-        snowView?.show(UIImage.init(named: "1"), in: self.view)
+        if showTheSnow {
+            snowView = SnowView.init(frame: self.view.bounds)
+            snowView?.show(UIImage.init(named: "1"), in: self.view)
+        }
     }
 
     override func viewDidLayoutSubviews() {
